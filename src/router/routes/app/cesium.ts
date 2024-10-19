@@ -5,7 +5,7 @@ export const CESIUM_ROUTES: RouteRecordRaw[] = [
   {
     path: 'cesium',
     name: 'admin-cesium',
-    meta: { title: 'cesium', icon: 'earth-fill' },
+    meta: { title: 'cesium', icon: 'earth-fill', noKeepAlive: true },
     redirect: { name: 'admin-cesium-viewer' },
     component: CesiumLayout,
     children: [

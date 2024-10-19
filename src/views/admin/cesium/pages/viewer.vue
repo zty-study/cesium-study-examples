@@ -1,5 +1,5 @@
 <template>
-  <div>换行后</div>
+  <div class="cesium-viewer-page"></div>
 </template>
 
 <script setup lang="ts"></script>
