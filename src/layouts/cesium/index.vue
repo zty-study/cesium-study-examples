@@ -1,5 +1,6 @@
 <template>
   <div id="base-cesium-viewer" class="cesium-layout wh-100 relative">
+    <MapInfo class="map-base-info z-2" />
     <router-view v-if="isMounted" />
   </div>
 </template>
@@ -7,6 +8,7 @@
 <script setup lang="ts">
 import * as Cesium from 'cesium'
 import { provideViewer } from '@/packages/vue3-cesium-use'
+import { MapInfo } from '@/packages/vue3-cesium-use'
 
 const { isMounted } = provideViewer(() => {
   const viewer = new Cesium.Viewer('base-cesium-viewer', {
@@ -43,6 +45,13 @@ const { isMounted } = provideViewer(() => {
 </script>
 
 <style lang="scss">
+.cesium-layout {
+  .map-base-info {
+    left: 0;
+    top: 0;
+    position: absolute;
+  }
+}
 .cesium-widget-credits {
   display: none !important;
   visibility: hide !important;

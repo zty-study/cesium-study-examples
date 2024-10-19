@@ -13,7 +13,7 @@ export const CESIUM_ROUTES: RouteRecordRaw[] = [
         path: 'viewer',
         name: 'admin-cesium-viewer',
         component: () => import('@/views/admin/cesium/pages/viewer.vue'),
-        meta: { title: 'viewer' }
+        meta: { title: '场景视图' }
       }
     ]
   }
