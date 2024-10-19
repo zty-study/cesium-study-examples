@@ -1,0 +1,23 @@
+@use "sass:color";
+@mixin bg-image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+// 模糊背景
+@mixin blurBg {
+    backdrop-filter: saturate(5) blur(20px);
+    @include useTheme {
+        background-color: rgba($color: getVal(pureColor), $alpha: 0.7);
+    }
+    background: rgb(255 255 255 / 70%);
+}
+
+@mixin lighten-color($color, $percentage) {
+    background-color: color.adjust($color, $lightness: $percentage);
+}
+
+@mixin darken-color($color, $percentage) {
+    background-color: color.adjust($color, $lightness: -$percentage);
+}
