@@ -1,8 +1,8 @@
 import * as Cesium from 'cesium'
 import { makeDestructurable } from '@vueuse/core'
-import { type MaybeCartographic, normalizeCartographic } from '../../../shared/cesium/cartographic'
+import { type MaybeCoordinates, normalizeCoordinates } from '../../utils/coordinates'
 
-export function toCoordinates(source: Cesium.Cartesian3 | MaybeCartographic) {
+export function toCoordinates(source: Cesium.Cartesian3 | MaybeCoordinates) {
   const createReturns = (longitude: number, latitude: number, height: number | undefined) =>
     makeDestructurable(
       {
@@ -25,7 +25,7 @@ export function toCoordinates(source: Cesium.Cartesian3 | MaybeCartographic) {
     return createReturns(longitude, latitude, height)
   }
 
-  const { longitude, latitude, height } = normalizeCartographic(source)
+  const { longitude, latitude, height } = normalizeCoordinates(source)
 
   return createReturns(longitude, latitude, height)
 }

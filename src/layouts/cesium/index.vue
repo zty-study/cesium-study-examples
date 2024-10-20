@@ -1,6 +1,6 @@
 <template>
   <div id="base-cesium-viewer" class="cesium-layout wh-100 relative">
-    <MapInfo class="map-base-info z-2" />
+    <MapInfo v-if="isMounted" class="map-base-info z-2" />
     <router-view v-if="isMounted" />
   </div>
 </template>
