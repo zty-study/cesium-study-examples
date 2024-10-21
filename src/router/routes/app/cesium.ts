@@ -20,6 +20,12 @@ export const CESIUM_ROUTES: RouteRecordRaw[] = [
         name: 'admin-cesium-boundary',
         component: () => import('@/views/admin/cesium/pages/boundary.vue'),
         meta: { title: '国境边界' }
+      },
+      {
+        path: 'model',
+        name: 'admin-cesium-model',
+        component: () => import('@/views/admin/cesium/pages/model.vue'),
+        meta: { title: '模型加载' }
       }
     ]
   }
