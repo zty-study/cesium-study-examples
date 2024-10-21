@@ -14,6 +14,12 @@ export const CESIUM_ROUTES: RouteRecordRaw[] = [
         name: 'admin-cesium-viewer',
         component: () => import('@/views/admin/cesium/pages/viewer.vue'),
         meta: { title: '场景视图' }
+      },
+      {
+        path: 'boundary',
+        name: 'admin-cesium-boundary',
+        component: () => import('@/views/admin/cesium/pages/boundary.vue'),
+        meta: { title: '国境边界' }
       }
     ]
   }
