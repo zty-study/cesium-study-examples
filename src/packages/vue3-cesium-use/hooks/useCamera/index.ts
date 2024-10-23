@@ -12,6 +12,8 @@ export const useCamera = () => {
     roll?: number
     height?: number
     level?: number
+    position?: Cesium.Cartesian3
+    positionCartographic?: Cesium.Cartographic
   }>({}) // 相机参数
 
   cameraInfo.value = {
@@ -19,7 +21,9 @@ export const useCamera = () => {
     pitch: Cesium.Math.toDegrees(viewer.camera.pitch),
     roll: Cesium.Math.toDegrees(viewer.camera.roll),
     height: viewer.camera.positionCartographic.height,
-    level: heightToLevel(cameraInfo.value.height || 0)
+    level: heightToLevel(cameraInfo.value.height || 0),
+    position: viewer.camera.position.clone(),
+    positionCartographic: viewer.camera.positionCartographic.clone()
   }
 
   // 相机变化事件
@@ -29,7 +33,9 @@ export const useCamera = () => {
       pitch: Cesium.Math.toDegrees(viewer.camera.pitch),
       roll: Cesium.Math.toDegrees(viewer.camera.roll),
       height: viewer.camera.positionCartographic.height,
-      level: heightToLevel(cameraInfo.value.height || 0)
+      level: heightToLevel(cameraInfo.value.height || 0),
+      position: viewer.camera.position.clone(),
+      positionCartographic: viewer.camera.positionCartographic.clone()
     }
   })
 

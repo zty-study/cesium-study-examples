@@ -22,6 +22,13 @@
     </div>
 
     <div class="cesium-map-base-info-line-wrap">
+      <span class="cesium-map-base-info-title">【相机】</span>
+      <span>X: {{ (cameraInfo.position?.x || 0).toFixed(5) }}</span>
+      <span>Y: {{ (cameraInfo.position?.y || 0).toFixed(5) }}</span>
+      <span>Z: {{ (cameraInfo.position?.z || 0).toFixed(5) }}</span>
+    </div>
+
+    <div class="cesium-map-base-info-line-wrap">
       <span class="cesium-map-base-info-title">【笛卡尔】</span>
 
       <span>X: {{ mouseCartesian.x.toFixed(5) }}</span>
