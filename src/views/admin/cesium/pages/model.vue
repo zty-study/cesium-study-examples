@@ -6,18 +6,36 @@
 
 <script setup lang="ts">
 import { MapInfo } from '@/packages/vue3-cesium-use'
-
+import * as turf from '@turf/turf'
 import * as Cesium from 'cesium'
 import { getViewer } from '@/packages/vue3-cesium-use'
 
 const viewer = getViewer()
-const token = '1b7e6d0d69b7c4ac48e13111aa6dbf81'
-// 服务域名
-const tdtUrl = 'https://t{s}.tianditu.gov.cn/'
-// 服务负载子域
-const subdomains = ['0', '1', '2', '3', '4', '5', '6', '7']
 
 viewer.entities.removeAll()
+
+var center = turf.point([118.38719, 24.449])
+var radius = 100
+var bearing1 = 95
+var bearing2 = 185
+
+var sector = turf.sector(center, radius, bearing1, bearing2)
+const positions = sector.geometry.coordinates[0].map((coor) => {
+  return Cesium.Cartesian3.fromDegrees(coor[0], coor[1])
+})
+
+console.log('positions', positions)
+
+viewer.entities.add({
+  polygon: {
+    hierarchy: {
+      positions: positions as Cesium.Cartesian3[]
+    },
+    material: Cesium.Color.fromCssColorString('#dcd062').withAlpha(0.7),
+    outline: true,
+    outlineColor: Cesium.Color.BLACK
+  }
+})
 
 const position = Cesium.Cartesian3.fromDegrees(119.04707, 23.85515, 20200)
 // const heading = Cesium.Math.toRadians(135)
@@ -47,45 +65,9 @@ viewer.entities.add({
     // uri: '/public/source/model/douglas_xb19/scene.gltf',
     minimumPixelSize: 56,
     maximumScale: 200,
-    color: Cesium.Color.RED,
     colorBlendMode: Cesium.ColorBlendMode.HIGHLIGHT
   }
 })
-
-// 叠加国界服务天地图
-const iboMap = new Cesium.UrlTemplateImageryProvider({
-  url: tdtUrl + 'DataServer?T=ibo_w&x={x}&y={y}&l={z}&tk=' + token,
-  subdomains: subdomains,
-  tilingScheme: new Cesium.WebMercatorTilingScheme(),
-  maximumLevel: 10
-})
-viewer.imageryLayers.addImageryProvider(iboMap)
-
-// 矢量注记
-// viewer.imageryLayers.addImageryProvider(
-//   new Cesium.WebMapTileServiceImageryProvider({
-//     url:
-//       'http://t0.tianditu.com/cva_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cva&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=' +
-//       token,
-//     layer: 'tdtAnnoLayer',
-//     style: 'default',
-//     format: 'image/jpeg',
-//     tileMatrixSetID: 'GoogleMapsCompatible'
-//   })
-// )
-
-// 影像注记
-// viewer.imageryLayers.addImageryProvider(
-//   new Cesium.WebMapTileServiceImageryProvider({
-//     url:
-//       'http://t0.tianditu.com/cia_w/wmts?service=wmts&request=GetTile&version=1.0.0&LAYER=cia&tileMatrixSet=w&TileMatrix={TileMatrix}&TileRow={TileRow}&TileCol={TileCol}&style=default.jpg&tk=' +
-//       token,
-//     layer: 'tdtAnnoLayer',
-//     style: 'default',
-//     format: 'image/jpeg',
-//     tileMatrixSetID: 'GoogleMapsCompatible'
-//   })
-// )
 
 onMounted(() => {
   viewer.camera.setView({
