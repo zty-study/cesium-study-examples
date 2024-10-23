@@ -8,3 +8,4 @@ export * from './hooks/useCamera'
 
 // 工具函数
 export * from './utils/coordinates'
+export * from './tools/toCartesian3'

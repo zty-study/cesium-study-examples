@@ -47,7 +47,7 @@ viewer.entities.add({
     // uri: '/public/source/model/douglas_xb19/scene.gltf',
     minimumPixelSize: 56,
     maximumScale: 200,
-    color: Cesium.Color.fromCssColorString('#ff0000'),
+    color: Cesium.Color.RED,
     colorBlendMode: Cesium.ColorBlendMode.HIGHLIGHT
   }
 })
