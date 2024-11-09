@@ -1,3 +1,5 @@
+import * as Cesium from 'cesium'
+
 // 计算高度对应的level
 export function heightToLevel(altitude: number) {
   // 粗略计算

@@ -1,5 +1,5 @@
 import * as Cesium from 'cesium'
-import { type MaybeCoordinates, normalizeCoordinates } from '../../index'
+import { type MaybeCoordinates, normalizeCoordinates } from '../../utils/coordinates'
 
 type NumberOrString = number | string
 
