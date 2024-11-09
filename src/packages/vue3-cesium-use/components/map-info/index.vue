@@ -54,11 +54,11 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import { usePick } from '../hooks/usePick'
-import { getViewer } from '../hooks/useViewer'
-import { useCamera } from '../hooks/useCamera'
+import { usePick } from '../../hooks/usePick'
+import { getViewer } from '../../hooks/useViewer'
+import { useCamera } from '../../hooks/useCamera'
 import { useThrottleFn } from '@vueuse/core'
-import { prettifyCoordinates } from '../utils/coordinates'
+import { prettifyCoordinates } from '../../utils/coordinates'
 
 const viewer = getViewer()
 viewer.scene.debugShowFramesPerSecond = true

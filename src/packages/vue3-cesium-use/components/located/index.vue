@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import type { Cartesian3 } from 'cesium'
 import { type Component, ref } from 'vue'
-import { type MaybeCoordinates } from '../utils/coordinates'
+import { type MaybeCoordinates } from '../../utils/coordinates'
 
-import { type UseLocatedOptions, useLocated } from '../hooks/useLocated'
+import { type UseLocatedOptions, useLocated } from '../../hooks/useLocated'
 
 type Nullable<T> = T | null | undefined
 

@@ -1,6 +1,6 @@
 // 组件
-export { default as MapInfo } from './components/map-info.vue'
-export { default as Located } from './components/located.vue'
+export { default as MapInfo } from './components/map-info/map-info/index.vue'
+export { default as Located } from './components/located/located/index.vue'
 
 // hooks
 export * from './hooks/useEvent'
