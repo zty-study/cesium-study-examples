@@ -1,10 +1,11 @@
-import { ref } from 'vue'
+import { ref, onBeforeUnmount } from 'vue'
 import * as Cesium from 'cesium'
 import { getViewer } from '../useViewer'
 
 export interface ModelOptions {
   id: string
   position: Cesium.Cartesian3
+  orientation?: Cesium.Quaternion
   model: Cesium.ModelGraphics | Cesium.ModelGraphics.ConstructorOptions
 }
 
@@ -26,10 +27,16 @@ export const useModel = () => {
       const model = new Cesium.Entity({
         id: modelOptions.id,
         position: modelOptions.position,
+        orientation: modelOptions.orientation,
         model: modelOptions.model
       })
       modelCollection.entities.add(model)
     })
+  })
+
+  onBeforeUnmount(() => {
+    viewer.dataSources.removeAll()
+    modelList.value = []
   })
 
   return { modelList }
