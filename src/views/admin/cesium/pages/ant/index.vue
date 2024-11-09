@@ -59,7 +59,7 @@ const methods = {
   // 初始化场景
   initSecen() {
     methods.setSceneSkyBox()
-    // methods.setCameraView()
+    methods.setCameraView()
   },
 
   // 设置场景天空盒

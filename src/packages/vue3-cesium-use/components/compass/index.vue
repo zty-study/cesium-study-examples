@@ -66,6 +66,8 @@ onBeforeUnmount(() => {
   user-select: none;
   position: absolute;
   overflow: hidden;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
   img {
     position: absolute;
     user-select: none;
