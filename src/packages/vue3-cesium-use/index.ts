@@ -8,6 +8,7 @@ export * from './hooks/useViewer'
 export * from './hooks/usePick'
 export * from './hooks/useCamera'
 export * from './hooks/useLocated'
+export * from './hooks/useModel'
 
 // 工具函数
 export * from './utils/coordinates'

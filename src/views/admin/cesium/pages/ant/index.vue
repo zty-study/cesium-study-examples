@@ -8,9 +8,11 @@
 import { MapInfo } from '@/packages/vue3-cesium-use'
 import * as turf from '@turf/turf'
 import * as Cesium from 'cesium'
-import { getViewer } from '@/packages/vue3-cesium-use'
+import { getViewer, useModel } from '@/packages/vue3-cesium-use'
+import { siteList } from './core/sites'
 
 const viewer = getViewer()
+const { modelList } = useModel()
 
 onMounted(() => {
   viewer.camera.setView({
@@ -22,6 +24,8 @@ onMounted(() => {
       roll: Cesium.Math.toRadians(0.54)
     }
   })
+
+  modelList.value = siteList
 })
 </script>
 
