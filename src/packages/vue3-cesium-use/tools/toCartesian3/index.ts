@@ -1,5 +1,5 @@
 import * as Cesium from 'cesium'
-import { type MaybeCartographic, normalizeCartographic } from '../../../shared/cesium/cartographic'
+import { type MaybeCoordinates, normalizeCoordinates } from '../../index'
 
 type NumberOrString = number | string
 
@@ -8,9 +8,9 @@ export function toCartesian3(
   latitude: NumberOrString,
   altitude?: NumberOrString
 ): Cesium.Cartesian3
-export function toCartesian3(source: Cesium.Cartesian3 | MaybeCartographic): Cesium.Cartesian3
+export function toCartesian3(source: Cesium.Cartesian3 | MaybeCoordinates): Cesium.Cartesian3
 export function toCartesian3(
-  arg1: Cesium.Cartesian3 | MaybeCartographic | NumberOrString,
+  arg1: Cesium.Cartesian3 | MaybeCoordinates | NumberOrString,
   arg2?: NumberOrString,
   arg3?: NumberOrString
 ): Cesium.Cartesian3 {
@@ -18,7 +18,7 @@ export function toCartesian3(
 
   const source = !arg2 ? arg1 : [arg1, arg2, arg3]
 
-  const { longitude, latitude, height } = normalizeCartographic(source as any)
+  const { longitude, latitude, height } = normalizeCoordinates(source as any)
 
   return Cesium.Cartesian3.fromDegrees(longitude, latitude, height)
 }

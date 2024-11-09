@@ -26,16 +26,16 @@ const positions = sector.geometry.coordinates[0].map((coor) => {
 
 console.log('positions', positions)
 
-viewer.entities.add({
-  polygon: {
-    hierarchy: {
-      positions: positions as Cesium.Cartesian3[]
-    },
-    material: Cesium.Color.fromCssColorString('#dcd062').withAlpha(0.7),
-    outline: true,
-    outlineColor: Cesium.Color.BLACK
-  }
-})
+// viewer.entities.add({
+//   polygon: {
+//     hierarchy: {
+//       positions: positions as Cesium.Cartesian3[]
+//     },
+//     material: Cesium.Color.fromCssColorString('#dcd062').withAlpha(0.7),
+//     outline: true,
+//     outlineColor: Cesium.Color.BLACK
+//   }
+// })
 
 const position = Cesium.Cartesian3.fromDegrees(119.04707, 23.85515, 20200)
 // const heading = Cesium.Math.toRadians(135)
@@ -61,7 +61,7 @@ viewer.entities.add({
   position: Cesium.Cartesian3.fromDegrees(118.38719, 24.449, 0),
   //   orientation: orientation,
   model: {
-    uri: '/public/source/model/satellite_ground_station/scene.gltf',
+    uri: '/source/model/satellite_ground_station/scene.gltf',
     // uri: '/public/source/model/douglas_xb19/scene.gltf',
     minimumPixelSize: 56,
     maximumScale: 200,

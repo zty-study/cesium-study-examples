@@ -26,6 +26,12 @@ export const CESIUM_ROUTES: RouteRecordRaw[] = [
         name: 'admin-cesium-model',
         component: () => import('@/views/admin/cesium/pages/model.vue'),
         meta: { title: '模型加载' }
+      },
+      {
+        path: 'ant',
+        name: 'admin-cesium-ant',
+        component: () => import('@/views/admin/cesium/pages/ant/index.vue'),
+        meta: { title: '天线侦查' }
       }
     ]
   }

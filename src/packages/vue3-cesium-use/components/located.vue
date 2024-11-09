@@ -1,9 +1,9 @@
-<!-- <script setup lang="ts">
+<script setup lang="ts">
 import type { Cartesian3 } from 'cesium'
 import { type Component, ref } from 'vue'
 import { type MaybeCoordinates } from '../utils/coordinates'
 
-import { type UseLocatedOptions, useLocated } from '~/index'
+import { type UseLocatedOptions, useLocated } from '../hooks/useLocated'
 
 type Nullable<T> = T | null | undefined
 
@@ -46,10 +46,11 @@ const { style, show } = useLocated(el, {
       style,
       {
         position: 'absolute',
+        zIndex: 999,
         visibility: show ? 'visible' : 'hidden'
       }
     ]"
   >
     <slot />
   </component>
-</template> -->
+</template>

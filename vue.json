@@ -1,0 +1,100 @@
+{
+    "Print to console": {
+      "prefix": "log",
+      "body": [
+        "console.log($1);",
+        "$2"
+      ],
+      "description": "Log output to console"
+    },
+    "vue": {
+      "prefix": "v3",
+      "body": [
+        "<template>",
+        "<div>",
+        "$2",
+        "</div>",
+        "</template>\n",
+        "<script setup lang=\"ts\">\n",
+        "</script>\n",
+        "<style lang=\"scss\" scoped>\n</style>"
+      ],
+      "description": "Log output to console"
+    },
+    "skeleton": {
+      "prefix": "ske",
+      "body": [
+        "<el-skeleton animated :loading=\"data === null\" :throttle=\"200\">",
+        "<template #template>",
+        "<el-skeleton />",
+        "</template>",
+        "<template #default v-if=\"data && data.length\"> \n",
+        "$2",
+        "<el-empty v-else description=\"暂无数据\" />",
+        "</template>",
+        "</el-skeleton>"
+      ]
+    },
+    "uniapp": {
+      "prefix": "uu",
+      "body": [
+        "<template>",
+        "<view>",
+        "$2",
+        "</view>",
+        "</template>\n",
+        "<script setup >",
+        "import { reactive } from \"vue\";",
+        "import { onLoad,onShow } from \"@dcloudio/uni-app\";\n",
+        "const state = reactive({})\n",
+        "const methods = {}\n",
+        "onLoad(() => {})\n",
+        "onShow(() => {})\n",
+        "</script>\n",
+        "<style lang=\"scss\" scoped>\n</style>"
+      ],
+      "description": "Log output to console"
+    },
+    "tip": {
+      "prefix": "tt",
+      "body": [
+        "import tip from \"@/common/app/tip\";"
+      ],
+      "description": "uniapp tip提示"
+    },
+    "vue2": {
+      "prefix": "v2",
+      "body": [
+        "<template>",
+        "<div>",
+        "$2",
+        "</div>",
+        "</template>\n",
+        "<script >",
+        "export default {\n",
+        "}",
+        "</script>\n",
+        "<style lang=\"scss\" scoped>\n</style>"
+      ]
+    },
+    "vuex": {
+      "prefix": "vx",
+      "body": [
+        "import { mapGetters } from 'vuex'\n",
+        "computed: {\n",
+        "...mapGetters({\n",
+        "  user: 'user/user',\n",
+        "  project: 'system/project',\n",
+        "  }\n",
+        "}),\n",
+        "},"
+      ]
+    },
+    "background": {
+      "prefix": "bc",
+      "body": [
+        "background-color: rgba(0,0,0,0.2);"
+      ],
+      "description": "Log output to console"
+    }
+  }

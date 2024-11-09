@@ -1,11 +1,6 @@
 <template>
   <a-dropdown trigger="hover" position="bl">
-    <a-avatar
-      :size="30"
-      object-fit="cover"
-      :image-url="`${appStore.env?.APP_BASE_API}${userStore.user?.avatar}`"
-      class="pointer"
-    >
+    <a-avatar :size="30" object-fit="cover" class="pointer">
       {{ userStore.user?.nickname }}
     </a-avatar>
     <template #content>
@@ -42,7 +37,7 @@ const methods = {
       title: '确认退出登录吗？',
       content: '确认退出登录吗？',
       onOk: async () => {
-        await userStore.logout()
+        // await userStore.logout()
         router.replace({
           name: 'login',
           query: { redirect: encodeURIComponent(route.fullPath) }
