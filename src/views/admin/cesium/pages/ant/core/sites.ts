@@ -9,8 +9,9 @@ export const siteList: ModelOptions[] = [
     model: {
       uri: '/source/model/satellite_ground_station/scene.gltf',
       // uri: '/public/source/model/douglas_xb19/scene.gltf',
-      minimumPixelSize: 56,
-      maximumScale: 200,
+      minimumPixelSize: 80,
+      maximumScale: 500,
+      heightReference: Cesium.HeightReference.RELATIVE_TO_GROUND,
       colorBlendMode: Cesium.ColorBlendMode.HIGHLIGHT
     }
   }
