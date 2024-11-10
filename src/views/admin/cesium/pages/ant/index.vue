@@ -65,12 +65,12 @@ const methods = {
   // 设置场景天空盒
   setSceneSkyBox() {
     setSkyBox({
-      positiveX: '/source/skybox/3/tycho2t3_80_px.jpg',
-      negativeX: '/source/skybox/3/tycho2t3_80_mx.jpg',
-      positiveY: '/source/skybox/3/tycho2t3_80_py.jpg',
-      negativeY: '/source/skybox/3/tycho2t3_80_my.jpg',
-      positiveZ: '/source/skybox/3/tycho2t3_80_pz.jpg',
-      negativeZ: '/source/skybox/3/tycho2t3_80_mz.jpg'
+      positiveX: '/source/skybox/2/tycho2t3_80_px.jpg',
+      negativeX: '/source/skybox/2/tycho2t3_80_mx.jpg',
+      positiveY: '/source/skybox/2/tycho2t3_80_py.jpg',
+      negativeY: '/source/skybox/2/tycho2t3_80_my.jpg',
+      positiveZ: '/source/skybox/2/tycho2t3_80_pz.jpg',
+      negativeZ: '/source/skybox/2/tycho2t3_80_mz.jpg'
     })
   },
 

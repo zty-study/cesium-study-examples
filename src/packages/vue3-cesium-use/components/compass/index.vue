@@ -9,8 +9,17 @@
     @touchend="compassState.resetRotater"
     @touchstart="compassState.handleMouseDown"
   >
-    <img :src="outerImg" class="wh-100" :style="outerCircleStyle" />
+    <img :src="outerImg" class="wh-100" :style="outerImgCss" />
     <img :src="innerImg" class="wh-100" />
+    <div class="compass-rotation-marker absolute-center" :style="rotationMarkerStyle">
+      <svg viewBox="0 0 1024 1024">
+        <path
+          d="M0 506.590189C0 226.82566 226.82566 0 506.590189 0v173.886792C322.849811 173.886792 173.886792 322.849811 173.886792 506.590189"
+          fill="#00aefe"
+          opacity=".8"
+        ></path>
+      </svg>
+    </div>
   </div>
 </template>
 
@@ -38,16 +47,23 @@ const props = withDefaults(
     innerImg: innerSvg
   }
 )
-const rootStyle = reactive<CSSProperties>({})
 const compassState = useCompass()
 
 // 导航盘位置
 const positionState = computed(() => usePosition(props.position, props.offset))
 
-const outerCircleStyle = computed(() => {
+const outerImgCss = computed(() => {
   return {
     transform: 'rotate(-' + compassState.heading.value + 'rad)',
     WebkitTransform: 'rotate(-' + compassState.heading.value + 'rad)'
+  }
+})
+
+const rotationMarkerStyle = computed(() => {
+  return {
+    transform: 'rotate(-' + compassState.orbitCursorAngle.value + 'rad)',
+    WebkitTransform: 'rotate(-' + compassState.orbitCursorAngle.value + 'rad)',
+    opacity: compassState.orbitCursorOpacity.value
   }
 })
 
@@ -72,6 +88,9 @@ onBeforeUnmount(() => {
     position: absolute;
     user-select: none;
     -webkit-user-drag: none;
+  }
+
+  .compass-rotation-marker {
   }
 }
 .wh-100 {
