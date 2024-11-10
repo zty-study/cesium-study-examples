@@ -1,24 +1,26 @@
 <template>
-  <div
-    class="cesium-use-compass-wrap"
-    :class="positionState.classes.value"
-    :style="positionState.style.value"
-    @dblclick="compassState.handleDoubleClick"
-    @mousedown="compassState.handleMouseDown"
-    @mouseup="compassState.resetRotater"
-    @touchend="compassState.resetRotater"
-    @touchstart="compassState.handleMouseDown"
-  >
-    <img :src="outerImg" class="wh-100" :style="outerImgCss" />
-    <img :src="innerImg" class="wh-100" />
-    <div class="compass-rotation-marker absolute-center" :style="rotationMarkerStyle">
-      <svg viewBox="0 0 1024 1024">
-        <path
-          d="M0 506.590189C0 226.82566 226.82566 0 506.590189 0v173.886792C322.849811 173.886792 173.886792 322.849811 173.886792 506.590189"
-          fill="#00aefe"
-          opacity=".8"
-        ></path>
-      </svg>
+  <div class="cesium-use-compass-contain">
+    <div
+      class="cesium-use-compass-wrap"
+      :class="positionState.classes.value"
+      :style="positionState.style.value"
+      @dblclick="compassState.handleDoubleClick"
+      @mousedown="compassState.handleMouseDown"
+      @mouseup="compassState.resetRotater"
+      @touchend="compassState.resetRotater"
+      @touchstart="compassState.handleMouseDown"
+    >
+      <img :src="outerImg" class="wh-100" :style="outerImgCss" />
+      <img :src="innerImg" class="wh-100" />
+      <div class="compass-rotation-marker absolute-center" :style="rotationMarkerStyle">
+        <svg viewBox="0 0 1024 1024">
+          <path
+            d="M0 506.590189C0 226.82566 226.82566 0 506.590189 0v173.886792C322.849811 173.886792 173.886792 322.849811 173.886792 506.590189"
+            fill="#00aefe"
+            opacity=".8"
+          ></path>
+        </svg>
+      </div>
     </div>
   </div>
 </template>
@@ -75,8 +77,19 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
-.cesium-use-compass-wrap {
+.cesium-use-compass-contain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 9999;
+  pointer-events: none;
+}
+.cesium-use-compass-wrap {
   height: 120px;
   width: 120px;
   user-select: none;
@@ -84,13 +97,12 @@ onBeforeUnmount(() => {
   overflow: hidden;
   border-radius: 50%;
   background-color: rgba(0, 0, 0, 0.5);
+  pointer-events: all;
+
   img {
     position: absolute;
     user-select: none;
     -webkit-user-drag: none;
-  }
-
-  .compass-rotation-marker {
   }
 }
 .wh-100 {
@@ -100,53 +112,32 @@ onBeforeUnmount(() => {
 .absolute {
   position: absolute;
 }
-.fixed-top,
 .absolute-top {
   top: 0;
-  left: 0;
-  right: 0;
 }
-.fixed-right,
 .absolute-right {
-  top: 0;
   right: 0;
-  bottom: 0;
 }
-.fixed-bottom,
 .absolute-bottom {
-  right: 0;
   bottom: 0;
-  left: 0;
 }
-.fixed-left,
 .absolute-left {
-  top: 0;
-  bottom: 0;
   left: 0;
 }
-.fixed-top-left,
 .absolute-top-left {
   top: 0;
   left: 0;
 }
-.fixed-top-right,
 .absolute-top-right {
   top: 0;
   right: 0;
 }
-.fixed-bottom-left,
 .absolute-bottom-left {
   bottom: 0;
   left: 0;
 }
-.fixed-bottom-right,
 .absolute-bottom-right {
   bottom: 0;
   right: 0;
-}
-.absolute-center {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 </style>

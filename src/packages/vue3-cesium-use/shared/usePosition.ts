@@ -8,6 +8,7 @@ export type Position =
   | 'right'
   | 'bottom'
   | 'left'
+  | 'center'
 
 export const usePosition = (position: Position, offset?: [number, number]) => {
   const attach = computed(() => {

@@ -1,7 +1,7 @@
 <template>
   <div>
     <MapInfo class="map-base-info z-2" />
-    <Compass position="top-right" :offset="[10, 10]" />
+    <Compass position="bottom-right" :offset="[10, 10]" />
   </div>
 </template>
 
