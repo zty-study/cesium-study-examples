@@ -35,7 +35,7 @@ export const useModel = () => {
   })
 
   onBeforeUnmount(() => {
-    viewer.dataSources.removeAll()
+    viewer.dataSources?.remove(modelCollection)
     modelList.value = []
   })
 

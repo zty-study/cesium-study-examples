@@ -1,0 +1,51 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    115.93484,
+                    23.00697,
+                    0
+                ]
+            },
+            "properties": {
+                "id": "9118e678-8125-424f-a50f-23d1ce6e01f6",
+                "name": "未命名图元",
+                "remarks": "",
+                "graphicClassType": "satellite",
+                "graphicType": "rectSensor",
+                "style": {
+                    "radius": 400000,
+                    "pitch": 0,
+                    "heading": -45,
+                    "roll": 80,
+                    "vAngle": 20,
+                    "slice": 32,
+                    "hAngle": 70,
+                    "color": "rgba(0, 255, 255, 0.31)",
+                    "selectedColor": "rgba(255, 0, 0, 0.5)",
+                    "lineShow": true,
+                    "lineColor": "rgba(255, 255, 255, 0.5)",
+                    "topShow": true,
+                    "topline": true,
+                    "showScanPlane": true,
+                    "scanPlaneColor": "rgba(0, 255, 255, 0.44)",
+                    "scanPlaneRate": 10
+                },
+                "userData": {}
+            }
+        }
+    ],
+    "properties": {
+        "id": "76387b9c-a714-4b30-90ac-2eddfa6bc804",
+        "name": "",
+        "remarks": "",
+        "type": "graphic",
+        "show": true,
+        "hasEdit": false,
+        "selectedEnable": true
+    }
+}

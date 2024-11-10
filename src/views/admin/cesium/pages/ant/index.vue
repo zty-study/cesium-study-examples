@@ -1,14 +1,23 @@
 <template>
   <div>
     <MapInfo class="map-base-info z-2" />
-    <Compass position="bottom-right" :offset="[10, 10]" />
+    <Compass position="top-right" :offset="[10, 10]" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { MapInfo, Compass } from '@/packages/vue3-cesium-use'
 import * as Cesium from 'cesium'
-import { getViewer, useModel, useSkyBox, toCartesian3 } from '@/packages/vue3-cesium-use'
+import {
+  getViewer,
+  useModel,
+  useSkyBox,
+  toCartesian3,
+  useDrawSensor
+} from '@/packages/vue3-cesium-use'
+
+// -------------------------------
+useDrawSensor()
 
 const viewer = getViewer()
 const { modelList } = useModel()
@@ -59,7 +68,7 @@ const methods = {
   // 初始化场景
   initSecen() {
     methods.setSceneSkyBox()
-    methods.setCameraView()
+    // methods.setCameraView()
   },
 
   // 设置场景天空盒

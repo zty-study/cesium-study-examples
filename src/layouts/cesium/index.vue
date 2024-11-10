@@ -23,6 +23,7 @@ const { isMounted } = provideViewer(() => {
     sceneModePicker: false,
     navigationHelpButton: false,
     // animation: false,
+    shouldAnimate: true,
     timeline: false,
     fullscreenButton: false,
     selectionIndicator: false, // 取消绿色选框
